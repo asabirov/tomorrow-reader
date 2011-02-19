@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">Завтра.ру</string>
+    
+    <string name="login_email_label">E-mail:</string>
+    <string name="login_password_label">Пароль:</string>
+    
+</resources>

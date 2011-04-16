@@ -2,7 +2,44 @@
 <resources>
     <string name="app_name">Завтра.ру</string>
     
-    <string name="login_email_label">E-mail:</string>
-    <string name="login_password_label">Пароль:</string>
+    <string name="registration_url">http://m.zvtra.ru/users/sign_up</string>
+    
+    
+    <string name="email_field_label">E-mail:</string>
+    <string name="password_field_label">Пароль:</string>
+    <string name="add_bookmark_label">Добавить закладку</string>
+    <string name="signin_button_label">Войти</string>
+    <string name="url_field_label">URL страницы</string>
+    
+    
+    <string name="signin_title">Подключение к сервису</string>
+    <string name="bookmarks_manager_title">Закладки и статьи</string>
+    <string name="reader_title">Содержание</string>
+    
+    
+    <string name="sign_in">Авторизация</string>
+    
+    <string name="registration">Регистрация</string>
+    
+    <string name="auth_error">E-mail или пароль неверны</string>
+    
+    <string name="updated">Список обновлен</string>
+    
+    <string name="sync_in_progress">Синхронизация данных. Подождите...</string>
+    
+    
+    <string name="preferences_auto_sync">Автоматическая синхзронизация:</string>
+    
+    <string name="goto_original">Перейти к оригиналу</string>
+    
+    <string name="delete">Удалить</string>
+    
+    <string name="cancel">Отменить</string>
+    
+    <string name="delete_confirmation">Удалить?</string>
+    
+    <string name="deleted">Закладка удалена</string>
+    
+    <string name="bookmarks_label">Отложенное</string>
     
 </resources>

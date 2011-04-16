@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10px" >
+
+    <TextView android:id="@+id/label_url"
+        android:text="@string/url_field_label"
+        android:textSize="15dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/field_url"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"          
+        android:layout_below="@id/label_url" 
+        android:singleLine="true"/>
+        
+    <Button
+        style="@style/DarkButton"
+        android:id="@+id/submit_button"
+        android:layout_marginTop="20px"        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/field_url"
+        android:text="@string/add_bookmark_label" />
+
+</RelativeLayout>

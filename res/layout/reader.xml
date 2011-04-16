@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_height="fill_parent" 
+    android:layout_width="fill_parent">
+        
+    <RelativeLayout style="@style/TopBarLayout">
+        
+        <ImageButton android:id="@+id/home_button"
+            android:src="@drawable/icon_return"            
+            style="@style/TopBarButton" 
+            android:gravity="left"
+            android:layout_alignParentLeft="true" />
+            
+        <ImageView  android:id="@+id/separator_r1"
+            style="@style/TopBarSeparator"
+            android:layout_toRightOf="@id/home_button" />
+        
+        
+        <ImageButton android:id="@+id/original_button"
+            android:src="@drawable/icon_original"
+            style="@style/TopBarButton"            
+            android:layout_toRightOf="@id/separator_r1"/>
+        
+        <ImageView  android:id="@+id/separator_r3"
+            style="@style/TopBarSeparator"
+            android:layout_toRightOf="@id/original_button"/>
+       
+        <!--right-->
+        
+        <ImageButton android:id="@+id/delete_button"            
+            android:src="@drawable/icon_delete"
+            style="@style/TopBarButton" 
+            android:layout_alignParentRight="true" />
+            
+         <ImageView android:id="@+id/separator_r4"
+            style="@style/TopBarSeparator"            
+            android:layout_toLeftOf="@id/delete_button"/>
+            
+    </RelativeLayout>    
+    
+    <!--<ScrollView android:layout_width="fill_parent"
+            android:layout_height="fill_parent">            -->
+        <WebView android:id="@+id/bookmark_content"  
+             style="@style/Reader"      
+             android:layout_width="fill_parent"  
+             android:layout_height="fill_parent"
+            /> 
+    <!--</ScrollView>-->
+</LinearLayout>

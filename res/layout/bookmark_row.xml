@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    style="@style/BookmarksListItem">	
+	
+    <!--<ImageView android:id="@+id/icon" 
+		android:layout_marginLeft="8px"
+        android:layout_marginTop="12px"
+		android:layout_marginRight="4px"
+        android:layout_height="22px"
+		android:layout_width="26px">
+	</ImageView>-->
+    
+    <TextView android:id="@+id/title"
+        android:text="@+id/TextView01"
+        style="@style/BookmarksListTextView">
+    </TextView>     
+        
+</LinearLayout>

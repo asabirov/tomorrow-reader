@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="DefaultTheme" parent="android:Theme.Light">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowBackground">@color/background</item>
+    <item name="android:listViewStyle">@style/BookmarksListView</item>
+    <item name="android:textAppearance">@style/DefaultTextAppearance</item>
+    <item name="android:textSize">16sp</item>
+  </style>
+  
+  <style name="DefaultTextAppearance" parent="@android:style/TextAppearance">    
+    <item name="android:textColor">@color/text</item>
+  </style>
+  
+  
+  <!--Main Window-->
+  <style name="DarkButton" parent="@android:style/Widget.Button">
+       <item name="android:gravity">center_vertical|center_horizontal</item>
+       <item name="android:textColor">@color/dark_button_text_color</item>
+       <item name="android:shadowColor">@color/dark_button_text_shadow</item>
+       <item name="android:shadowDx">0</item>
+       <item name="android:shadowDy">-1</item>
+       <item name="android:shadowRadius">0.2</item>
+       <item name="android:background">@drawable/dark_button</item>
+       <item name="android:focusable">true</item>
+       <item name="android:clickable">true</item>
+       <item name="android:textSize">20sp</item>     
+  </style>
+
+  <style name="MainButton"  parent="@style/DarkButton">
+      <item name="android:buttonStyle">@style/DarkButton</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:layout_width">200px</item>
+      <item name="android:padding">22sp</item>
+      <item name="android:layout_centerHorizontal">true</item>      
+  </style>
+  
+  <style name="FastSigninButton"  parent="@style/MainButton">
+      <item name="android:textStyle">bold</item>      
+  </style>
+  
+  <!--Signin-->
+  <style name="TextViewShadowed">
+    <item name="android:textColor">@color/text</item>
+    <item name="android:shadowColor">@color/text_shadow</item>
+    <item name="android:shadowDx">0</item>
+    <item name="android:shadowDy">1</item>
+    <item name="android:shadowRadius">1</item>
+  </style>
+  
+  
+  <!-- TopBar -->
+  <style name="TopBarLayout" parent="@android:style/ButtonBar">
+      <item name="android:background">@drawable/topbar</item>
+      <item name="android:padding">0dip</item>
+      <item name="android:layout_alignParentBottom">true</item>
+      <item name="android:gravity">top|right</item>
+      <item name="android:layout_height">50px</item>
+      <item name="android:layout_width">fill_parent</item>
+  </style>
+
+  <style name="TopBarSeparator">
+      <item name="android:src">@drawable/separator</item>
+      <item name="android:layout_height">50px</item>
+      <item name="android:layout_width">2px</item>
+      <item name="android:layout_centerVertical">false</item>
+      
+  </style>
+  
+  <style name="TopBarButton">      
+      <item name="android:layout_width">50px</item>
+      <item name="android:layout_height">50px</item>
+      <item name="android:scaleType">center</item>
+      <item name="android:layout_centerVertical">false</item>
+      
+      <item name="android:background">@drawable/top_button</item>      
+  </style>
+  
+  <style name="TopBarTextView">
+      <item name="android:layout_height">50px</item>
+      <item name="android:layout_width">fill_parent</item>
+      <item name="android:padding">5px</item>
+      <!--<item name="android:layout_marginBottom">-4dip</item>-->
+      <!--<item name="android:layout_centerVertical">true</item>      -->
+      <!--<item name="android:gravity">center_vertical|left</item>-->
+      <item name="android:layout_alignParentLeft">true</item>
+      
+      <item name="android:textStyle">bold</item>
+      <item name="android:textColor">@color/top_bar_color</item>
+      <item name="android:shadowColor">@color/top_bar_shadow</item>
+      <item name="android:shadowDx">0</item>
+      <item name="android:shadowDy">-1</item>
+      <item name="android:shadowRadius">1</item>
+  </style>
+  
+  <!-- List -->  
+  <style name="BookmarksListView" parent="@android:style/Widget.ListView">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:cacheColorHint">@color/cache_color_hint</item>
+    <item name="android:background">@color/background</item>
+    
+    <item name="android:divider">@color/list_divider</item>
+    <!--<item name="android:listSelector">@drawable/list_selector</item>     -->
+  </style>
+  
+  <style name="BookmarksListItem">
+    <item name="android:background">@drawable/list_item_selector</item>
+  </style>
+  
+  <style name="BookmarksListTextView">
+    <item name="android:layout_height">wrap_content</item>	
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_marginLeft">10px</item>
+    <item name="android:layout_marginRight">10px</item>
+    <item name="android:layout_marginTop">5px</item>
+    <item name="android:layout_marginBottom">5px</item>
+    
+    <item name="android:textColor">@color/list_text_color</item>    
+    <item name="android:shadowColor">@color/list_item_text_shadow</item>
+    <item name="android:shadowDx">0</item>
+    <item name="android:shadowDy">-1</item>
+    <item name="android:shadowRadius">0.2</item>
+    
+    <!--<item name="android:shadowColor">@color/list_text_shadow</item>
+    <item name="android:shadowDx">0</item>
+    <item name="android:shadowDy">1</item>
+    <item name="android:shadowRadius">1</item>-->
+    
+    <!--<item name="android:listSelector">@drawable/list_selector</item>-->
+  </style>
+  
+  
+  <!--Reader-->
+  <style name="Reader" >
+    <item name="android:padding">10px</item>    
+    <item name="android:background">@color/reader_background</item>
+    <item name="android:textColor">@color/reader_text_color</item>
+  </style>
+</resources>

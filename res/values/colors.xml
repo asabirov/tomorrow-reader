@@ -21,13 +21,10 @@
     <color name="list_text_shadow">#eeeeee</color>
     <color name="list_divider">#AF986D</color>
     
-    <color name="reader_text_color">#ffffff</color>
+ 
     <color name="reader_background">#444444</color>
-    <color name="reader_link_color">#76AD5D</color>
-    <color name="reader_link_visited_color">#EEEEEE</color>
-    <color name="reader_code_background">#222222</color>
-    <color name="reader_code_color">#ffffff</color>
-
+    <color name="reader_background_light">#FFFAE9</color>
+  
     <color name="cache_color_hint">#ff000000</color>    
     
 </resources>

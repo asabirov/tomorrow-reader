@@ -1,1 +1,1 @@
-java -jar e:\Dev\java\keys\SignApk.jar e:\Dev\java\keys\certificate.pem e:\Dev\java\keys\key.pk8 E:/Dev/java/TomorrowReader/dist/TomorrowReader.apk E:/Dev/java/TomorrowReader/dist/TomorrowReader_signed.apk
+java -jar e:\Dev\java\keys\SignApk.jar e:\Dev\java\keys\certificate.pem e:\Dev\java\keys\key.pk8 E:/Dev/java/TomorrowReader/bin/TomorrowReader-debug-unaligned.apk E:/Dev/java/TomorrowReader/bin/TomorrowReader_signed.apk

@@ -135,7 +135,5 @@
   <!--Reader-->
   <style name="Reader" >
     <item name="android:padding">10dip</item>    
-    <item name="android:background">@color/reader_background</item>
-    <item name="android:textColor">@color/reader_text_color</item>
   </style>
 </resources>

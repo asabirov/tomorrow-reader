@@ -14,14 +14,14 @@ import android.widget.Button;
  * @author CJ Slade
  * Стартовое окно
  */
-public class Startup extends Activity {
+public class StartupActivity extends Activity {
     
     public static final String TAG = "zvtra";
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);               
-        setContentView(R.layout.main);
+        setContentView(R.layout.startup);
         
         Log.d(TAG, "Startup activity");
         
@@ -66,7 +66,7 @@ public class Startup extends Activity {
      * Запуск авторизации
      */
     protected void launchSignin() {
-        Intent i = new Intent(this, Signin.class);
+        Intent i = new Intent(this, SigninActivity.class);
         startActivity(i);
     }    
     /**
@@ -82,7 +82,7 @@ public class Startup extends Activity {
      * Запуск списка закладок
      */
     protected void launchBookmarksManager() {
-        Intent i = new Intent(this, BookmarksManager.class);
+        Intent i = new Intent(this, BookmarksActivity.class);
         startActivity(i);
     }
 }

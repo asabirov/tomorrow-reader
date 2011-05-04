@@ -25,7 +25,7 @@ import org.json.JSONObject;
  * @author CJ Slade
  * Авторизация
  */
-public class Signin extends Activity {
+public class SigninActivity extends Activity {
     
     public static final String TAG = "zvtra";
     
@@ -38,7 +38,7 @@ public class Signin extends Activity {
         super.onCreate(savedInstanceState);   
         Log.d(TAG, "Sign_in layout");       
         
-        setContentView(R.layout.sign_in);
+        setContentView(R.layout.signin);
              
     }
     
@@ -101,12 +101,7 @@ public class Signin extends Activity {
             clearDb();
             launchBookmarksManager();
         }
-          
-        /*
-        //dialog.dismiss()
-        //this.requestWindowFeature(Window.FEATURE_PROGRESS);
-        //LoadingWindow.setProgressDrawable(Drawable d);         
-         */
+      
     }
     
     protected void clearDb(){
@@ -116,7 +111,7 @@ public class Signin extends Activity {
     }
     
     protected void launchBookmarksManager() {
-        Intent i = new Intent(this, BookmarksManager.class);
+        Intent i = new Intent(this, BookmarksActivity.class);
         startActivity(i);
     }
 }

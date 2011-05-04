@@ -29,7 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
-public class BookmarksManager extends ListActivity implements Runnable{
+public class BookmarksActivity extends ListActivity implements Runnable{
 
     public static final String TAG = "zvtra";
 
@@ -195,7 +195,7 @@ public class BookmarksManager extends ListActivity implements Runnable{
         
         super.onListItemClick(l, v, position, id);
         
-		Intent i = new Intent(this, Reader.class);
+		Intent i = new Intent(this, ReaderActivity.class);
 		i.putExtra("id", id);
         
         startActivity(i);                

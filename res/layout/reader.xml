@@ -16,16 +16,24 @@
             style="@style/TopBarSeparator"
             android:layout_toRightOf="@id/home_button" />
         
+        <ImageButton android:id="@+id/mode_button"
+            android:src="@drawable/icon_mode"
+            style="@style/TopBarButton"            
+            android:layout_toRightOf="@id/separator_r1"/>
+        
+        <ImageView  android:id="@+id/separator_r2"
+            style="@style/TopBarSeparator"
+            android:layout_toRightOf="@id/mode_button"/>
         
         <ImageButton android:id="@+id/original_button"
             android:src="@drawable/icon_original"
             style="@style/TopBarButton"            
-            android:layout_toRightOf="@id/separator_r1"/>
+            android:layout_toRightOf="@id/separator_r2"/>
         
         <ImageView  android:id="@+id/separator_r3"
             style="@style/TopBarSeparator"
             android:layout_toRightOf="@id/original_button"/>
-       
+        
         <!--right-->
         
         <ImageButton android:id="@+id/delete_button"            

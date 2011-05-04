@@ -74,7 +74,15 @@ public class Reader extends Activity {
                 delete();
             }
         });  
-     
+        
+        ImageButton gotoButton = (ImageButton) findViewById(R.id.original_button);
+        gotoButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Log.d(TAG, "gotoButton clicked");                
+                gotoOriginal();
+            }
+        });  
+        
     }
     
     @Override
@@ -116,16 +124,24 @@ public class Reader extends Activity {
                 WebView contentText = (WebView) findViewById(R.id.bookmark_content);
                 contentText.setBackgroundColor(R.color.reader_background);
                 
-                String styles = "<style type=\"text/css\">html {background: #222222; color: #fff;}"
-                        + "body {background: #222222; color: #fff;}"
+                String styles = "<style type=\"text/css\">"
+                        + "body {background: #333; color: #fff;}"
                         + "h1 {font-size: 1.3em;}"
                         + "h2 {font-size: 1.1em;}"
                         + "h3 {font-size: 1.1em;}"
                         + "a {color: #76AD5D}"
-                        + "a:visited{color: #eee}</style>";
+                        + "a:visited{color: #eee}"
+                        + "code {padding: 3px 5px;background: #222;color: #fff;}"
+                        + "</style>";
                 
-                String data = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><html><head>"+styles+"</head><body><h1>"+title+"</h1>" + content + "</body></html>";  
-                contentText.loadData(data, "text/html", "UTF-8");  
+                String data = "<html>";
+                data += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />";
+                data += styles;
+                data += "</head>";
+                data += "<body>";
+                data += content;
+                data += "</body></html>";  
+                contentText.loadDataWithBaseURL(null, data, "text/html", "UTF-8", null);  
             }
         } catch(Exception e) {
                 e.printStackTrace();
@@ -177,5 +193,12 @@ public class Reader extends Activity {
         Intent i = new Intent(this, BookmarksManager.class);
         i.putExtra("status", status);
         startActivity(i);
+    }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mBookmark.close();
+        mDbAdapter.close();
     }
 }

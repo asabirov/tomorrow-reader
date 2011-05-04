@@ -2,3 +2,6 @@ build
 nbproject
 *.txt
 *.bat
+/gen/
+/nbandroid/
+/bin/

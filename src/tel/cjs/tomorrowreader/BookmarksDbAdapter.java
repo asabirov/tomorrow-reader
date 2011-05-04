@@ -1,7 +1,8 @@
 /**
  * Адаптер для списка закладок
  */
-package tel.cjs.tomorrowreader;
+package tel.cjs.tomorrowreader
+;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,6 +18,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 public class BookmarksDbAdapter {
     
@@ -60,10 +62,10 @@ public class BookmarksDbAdapter {
     /**
      * Обновление текста
      * @param content 
-     * @param id
+     * @param externalId
      */
-    public void updateContent(String content, Long id) {
-        dh.updateContent(content, id);
+    public void updateContent(String content, String externalId) {
+        dh.updateContent(content, externalId);
     }
     /**
      * Удаление всех записей
@@ -132,7 +134,7 @@ public class BookmarksDbAdapter {
      * Удаление закладок на сервере
      */
     private void syncDeleted() {
-        Boolean success;
+        
         String externalId;
         Long id ;
         JSONObject jsonObjRecv;
@@ -151,13 +153,14 @@ public class BookmarksDbAdapter {
                     getParams.add(new BasicNameValuePair("api_key", mPrefs.getString("apiKey", "")));                     
 
                     jsonObjRecv = HttpClient.SendHttpRequest(HttpClient.DELETE, requestUrl, getParams);        
-
-                    success = jsonObjRecv.getBoolean("success");
-
-                    if (success) {
-                        JSONObject data =  jsonObjRecv.getJSONObject("data");
-                        dh.delete(id);
-                    }                 
+                    
+                    if (jsonObjRecv != null) {
+                        Boolean success = jsonObjRecv.getBoolean("success");
+                        if (success != null && success) {
+                            JSONObject data =  jsonObjRecv.getJSONObject("data");
+                            dh.delete(id);
+                        }                 
+                    }
                 } while (cursor.moveToNext());
                 
             }
@@ -188,7 +191,7 @@ public class BookmarksDbAdapter {
                 JSONObject row;
                 
                 if (data != null) {                     
-                    for (int i=0;i<data.length();i++){ 
+                    for (int i=0; i < data.length(); i++){ 
                         row = data.getJSONObject(i);     
                         exists.add(row.getString("id"));
                         createBookmark(row.getString("id"), row.getString("url"), row.getString("title"), 
@@ -215,10 +218,15 @@ public class BookmarksDbAdapter {
         Cursor cursor = dh.fetchWithoutContent();
         try {
             if (cursor != null && cursor.moveToFirst()) {
-                
+                ArrayList<String> ids = new ArrayList<String>();
                 do {
-                    externalId = cursor.getString(cursor.getColumnIndex("external_id"));
-                    id = cursor.getLong(cursor.getColumnIndex("_id"));
+                    ids.add(cursor.getString(cursor.getColumnIndex("external_id")));
+                } while (cursor.moveToNext());
+                
+                if (ids.size() > 0 ) {                    
+                    //externalId = cursor.getString(cursor.getColumnIndex("external_id"));
+                    //id = cursor.getLong(cursor.getColumnIndex("_id"));
+                    /*
 
                     String requestUrl = "http://" + ZvtraConst.DOMAIN + "/bookmarks/" + externalId;
 
@@ -232,11 +240,45 @@ public class BookmarksDbAdapter {
                     if (success) {
                         JSONObject data =  jsonObjRecv.getJSONObject("data");
                         if (data != null) {   
-                            updateContent(data.getString("content"), id);                                
+                            updateContent(data.getString("content"), externalId);                                
                         }
-                    }                 
-                } while (cursor.moveToNext());
-                
+                    }            
+                   */
+                    String requestUrl = "http://" + ZvtraConst.DOMAIN + "/bookmarks/multi";
+                    int n = 0;
+                    int step = 6;
+                    int to;
+                    while(n < ids.size()) {
+                        to = n+step;
+                        
+                        if (to >= ids.size()) {
+                            to = ids.size()-1;
+                        }
+                        
+                        List<String> chunk = ids.subList(n, to);
+                        
+                        n += step;
+                        List<NameValuePair> params = new ArrayList<NameValuePair>(2);
+                        params.add(new BasicNameValuePair("api_key", mPrefs.getString("apiKey", "")));
+                      
+                        params.add(new BasicNameValuePair("ids", chunk.toString().replace("[","").replace("]","").replace(" ","")));
+
+                        jsonObjRecv = HttpClient.SendHttpRequest(HttpClient.POST, requestUrl, params);        
+
+                        success = jsonObjRecv.getBoolean("success");
+
+                        if (success) {
+                            JSONObject row;
+                            JSONArray data =  jsonObjRecv.getJSONArray("data");
+                            if (data != null) {   
+                                for (int i=0; i<data.length(); i++){ 
+                                    row = data.getJSONObject(i);     
+                                    updateContent(row.getString("content"), row.getString("id"));                                                        
+                                }        
+                            }
+                        }   
+                    }
+                }                
             }
        } catch (JSONException e) {
            e.printStackTrace();

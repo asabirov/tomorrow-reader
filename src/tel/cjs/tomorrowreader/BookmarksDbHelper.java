@@ -132,7 +132,7 @@ public class BookmarksDbHelper {
      * @return Cursor
      */
     public Cursor fetchWithoutContent() {        
-       Cursor cursor = db.rawQuery("SELECT _id, external_id FROM " + DATABASE_TABLE + " WHERE content_exists = 1 AND content = ''" , null);
+       Cursor cursor = db.rawQuery("SELECT _id, external_id FROM " + DATABASE_TABLE + " WHERE content_exists = 1 AND content = ''" , null);       
        return cursor;
     }
     /**
@@ -183,12 +183,12 @@ public class BookmarksDbHelper {
     /**
      * Обновление текста
      * @param content 
-     * @param id
+     * @param externalId
      */
-    public void updateContent(String content, Long id) {
+    public void updateContent(String content, String externalId) {
         ContentValues args = new ContentValues();
         args.put("content", content);
-        db.update(DATABASE_TABLE, args, "_id=" + id, null);
+        db.update(DATABASE_TABLE, args, "external_id='" + externalId+"'", null);
     }
     /**
      * Помечаем уданным

@@ -17,6 +17,7 @@
   <style name="DarkButton" parent="@android:style/Widget.Button">
        <item name="android:gravity">center_vertical|center_horizontal</item>
        <item name="android:textColor">@color/dark_button_text_color</item>
+       
        <item name="android:shadowColor">@color/dark_button_text_shadow</item>
        <item name="android:shadowDx">0</item>
        <item name="android:shadowDy">-1</item>
@@ -30,7 +31,7 @@
   <style name="MainButton"  parent="@style/DarkButton">
       <item name="android:buttonStyle">@style/DarkButton</item>
       <item name="android:layout_height">wrap_content</item>
-      <item name="android:layout_width">200px</item>
+      <item name="android:layout_width">200dip</item>
       <item name="android:padding">22sp</item>
       <item name="android:layout_centerHorizontal">true</item>      
   </style>
@@ -55,21 +56,21 @@
       <item name="android:padding">0dip</item>
       <item name="android:layout_alignParentBottom">true</item>
       <item name="android:gravity">top|right</item>
-      <item name="android:layout_height">50px</item>
+      <item name="android:layout_height">50dip</item>
       <item name="android:layout_width">fill_parent</item>
   </style>
 
   <style name="TopBarSeparator">
       <item name="android:src">@drawable/separator</item>
-      <item name="android:layout_height">50px</item>
-      <item name="android:layout_width">2px</item>
+      <item name="android:layout_height">50dip</item>
+      <item name="android:layout_width">2dip</item>
       <item name="android:layout_centerVertical">false</item>
       
   </style>
   
   <style name="TopBarButton">      
-      <item name="android:layout_width">50px</item>
-      <item name="android:layout_height">50px</item>
+      <item name="android:layout_width">50dip</item>
+      <item name="android:layout_height">50dip</item>
       <item name="android:scaleType">center</item>
       <item name="android:layout_centerVertical">false</item>
       
@@ -77,9 +78,9 @@
   </style>
   
   <style name="TopBarTextView">
-      <item name="android:layout_height">50px</item>
+      <item name="android:layout_height">50dip</item>
       <item name="android:layout_width">fill_parent</item>
-      <item name="android:padding">5px</item>
+      <item name="android:padding">5dip</item>
       <!--<item name="android:layout_marginBottom">-4dip</item>-->
       <!--<item name="android:layout_centerVertical">true</item>      -->
       <!--<item name="android:gravity">center_vertical|left</item>-->
@@ -111,10 +112,10 @@
   <style name="BookmarksListTextView">
     <item name="android:layout_height">wrap_content</item>	
     <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_marginLeft">10px</item>
-    <item name="android:layout_marginRight">10px</item>
-    <item name="android:layout_marginTop">5px</item>
-    <item name="android:layout_marginBottom">5px</item>
+    <item name="android:layout_marginLeft">10dip</item>
+    <item name="android:layout_marginRight">10dip</item>
+    <item name="android:layout_marginTop">15dip</item>
+    <item name="android:layout_marginBottom">15dip</item>
     
     <item name="android:textColor">@color/list_text_color</item>    
     <item name="android:shadowColor">@color/list_item_text_shadow</item>
@@ -133,7 +134,7 @@
   
   <!--Reader-->
   <style name="Reader" >
-    <item name="android:padding">10px</item>    
+    <item name="android:padding">10dip</item>    
     <item name="android:background">@color/reader_background</item>
     <item name="android:textColor">@color/reader_text_color</item>
   </style>

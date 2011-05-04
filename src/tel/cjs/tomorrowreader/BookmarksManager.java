@@ -162,7 +162,9 @@ public class BookmarksManager extends ListActivity implements Runnable{
                 Log.d(TAG, "submitButton clicked");                
                 
                 TextView urlTextView = (TextView) mDialog.findViewById(R.id.field_url);
-                sendNewUrl(urlTextView.getText().toString());
+                if (urlTextView.getText().toString().length() > 0) {
+                    sendNewUrl(urlTextView.getText().toString());
+                }
                 mDialog.dismiss();
             }
         });             
@@ -184,13 +186,13 @@ public class BookmarksManager extends ListActivity implements Runnable{
 
 		SimpleCursorAdapter bookmarks = new SimpleCursorAdapter(this,
 			R.layout.bookmark_row, mCursor, from, to);
-		setListAdapter(bookmarks);        
-    
+		setListAdapter(bookmarks);               
+        
     }   
     
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-        mDbAdapter.close();
+        
         super.onListItemClick(l, v, position, id);
         
 		Intent i = new Intent(this, Reader.class);
@@ -198,9 +200,11 @@ public class BookmarksManager extends ListActivity implements Runnable{
         
         startActivity(i);                
 	}      
+    
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mCursor.close();
         mDbAdapter.close();
     }
 }

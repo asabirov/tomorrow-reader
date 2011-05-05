@@ -13,8 +13,6 @@
             android:gravity="left"
             android:layout_alignParentLeft="true"/>
       
-      
-      
        <ImageButton android:id="@+id/refresh_button"
             android:src="@drawable/icon_refresh"            
             style="@style/TopBarButton"                
@@ -36,12 +34,6 @@
     </RelativeLayout>    
     
     <ListView android:id="@android:id/list"         
-         
          style="@style/BookmarksListView"/>    
-    
-    
-    
-    
-    <!---->
     
 </LinearLayout>

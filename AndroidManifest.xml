@@ -11,15 +11,15 @@
     <application android:theme="@style/DefaultTheme" 
        android:icon="@drawable/logo_a" 
        android:label="@string/app_name">
-         <activity android:name=".StartupActivity" android:label="@string/app_name" >
+        <activity android:name=".StartupActivity" android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>                
             </intent-filter>
         </activity>
-        <activity android:name="SigninActivity" />
-        <activity android:name="BookmarksActivity" />
-        <activity android:name="ReaderActivity"  />            
-        <activity android:name="StartupActivity" />            
+        
+        <activity android:name="SigninActivity" android:title="" />
+        <activity android:name="BookmarksActivity" android:title="" />
+        <activity android:name="ReaderActivity"  android:title="" />   
     </application>
 </manifest>

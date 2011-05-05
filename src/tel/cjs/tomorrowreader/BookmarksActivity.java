@@ -17,11 +17,6 @@ import android.database.Cursor;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.Menu;
-import android.view.MotionEvent;
-import android.content.Context;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -105,13 +100,7 @@ public class BookmarksActivity extends ListActivity implements Runnable{
         }
         
         mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        
-        
-        
-        
-        //TextView titleTextView = (TextView) findViewById(R.id.top_bar_email);
-        //titleTextView.setText(mPrefs.getString("email", ""));
-        
+                
         updateList();             
     }
     
@@ -124,6 +113,7 @@ public class BookmarksActivity extends ListActivity implements Runnable{
         Thread thread = new Thread(this);
         thread.start();
     }
+    
     /**
      * Запуск потока
      */
@@ -134,6 +124,7 @@ public class BookmarksActivity extends ListActivity implements Runnable{
                 
         handler.sendEmptyMessage(0);
     }
+    
     /**
      * Обработчик
      */
@@ -146,7 +137,8 @@ public class BookmarksActivity extends ListActivity implements Runnable{
             toast.show();
             updateList(); 
         }
-    };  
+    };
+            
     /**
      * Окно добавления закладки
      */
@@ -169,10 +161,12 @@ public class BookmarksActivity extends ListActivity implements Runnable{
             }
         });             
     }
+    
     private void sendNewUrl(String url){
         mDbAdapter.sendNewUrl(url);
         synchronize();
     }
+    
     /**
      * Обновление списка закладок
      */
@@ -186,12 +180,29 @@ public class BookmarksActivity extends ListActivity implements Runnable{
 
 		SimpleCursorAdapter bookmarks = new SimpleCursorAdapter(this,
 			R.layout.bookmark_row, mCursor, from, to);
-		setListAdapter(bookmarks);               
+		setListAdapter(bookmarks);   
         
-    }   
+        getListView().setSelectionFromTop(mPrefs.getInt("listStateIndex", 0), mPrefs.getInt("listStateTop", 0));
+    }
+    
+    /**
+     * Сохранение состояния списка
+     */
+    private void saveListState() {
+        int index = getListView().getFirstVisiblePosition();
+        View v = getListView().getChildAt(0);
+        int top = (v == null) ? 0 : v.getTop();
+        
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putInt("listStateIndex", index);
+        prefsEditor.putInt("listStateTop", top);
+        prefsEditor.commit();
+    }
     
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
+        
+        saveListState();
         
         super.onListItemClick(l, v, position, id);
         

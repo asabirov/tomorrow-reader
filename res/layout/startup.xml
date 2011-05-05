@@ -14,27 +14,17 @@
         android:layout_width="wrap_content"
         android:gravity="center"
         android:layout_centerHorizontal="true"/>
-             
-            
-    <Button android:id="@+id/signin_as_button"
-           style="@style/FastSigninButton"
-           android:text="@string/sign_in" 
-           android:layout_below="@id/logo"/>
-  
+   
     <Button android:id="@+id/main_signin_button" 
             style="@style/MainButton"
             android:text="@string/sign_in" 
             android:layout_marginTop="10px" 
-            android:layout_below="@id/signin_as_button"/>
+            android:layout_below="@id/logo"/>
             
-    <Button android:id="@+id/registration_button" 
-            style="@style/MainButton"
-            android:text="@string/registration" 
-            android:layout_marginTop="10px" 
-            android:layout_below="@id/main_signin_button"/>
-    
-    <!--Login as email-->    
-    
-    <!--Registration-->
+    <Button android:id="@+id/signin_as_button"
+           style="@style/FastSigninButton"
+           android:text="@string/sign_in" 
+           android:layout_below="@id/main_signin_button"/>
+  
     
 </RelativeLayout>

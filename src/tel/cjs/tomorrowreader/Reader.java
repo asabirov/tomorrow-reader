@@ -51,7 +51,8 @@ public class Reader {
              + "a:visited {color: #CCCCCC}";
        }
        
-       styles += "code, pre {padding: 3px 5px;background: color: #fff; background: #CF7641;}"
+       styles += "code, pre {padding: 1em; color: #FFFFFF !important; background: #CF7641; }"
+               + "blockquote {margin:1.5em;color:#666;font-style:italic;}"
                + "h1 {font-size: 1.3em;}"
                + "h2 {font-size: 1.1em;}"
                + "h3 {font-size: 1.1em;}"                    

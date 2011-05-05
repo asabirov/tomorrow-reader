@@ -34,12 +34,7 @@ public class StartupActivity extends Activity {
         
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         
-        Button registrationButton = (Button) findViewById(R.id.registration_button);        
-        registrationButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                launchRegistration();
-            }
-        });   
+       
         
         Button signinButton = (Button) findViewById(R.id.main_signin_button);        
         signinButton.setOnClickListener(new OnClickListener() {
@@ -69,15 +64,7 @@ public class StartupActivity extends Activity {
         Intent i = new Intent(this, SigninActivity.class);
         startActivity(i);
     }    
-    /**
-     * Регистрация
-     */
-    protected void launchRegistration(){
-        String url = getString(R.string.registration_url);
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);
-    }
+   
     /**
      * Запуск списка закладок
      */

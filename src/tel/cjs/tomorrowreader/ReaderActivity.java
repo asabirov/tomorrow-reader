@@ -140,6 +140,7 @@ public class ReaderActivity extends Activity {
         }
        
     }
+    
     /**
      * Удаление текущей записи
      */
@@ -161,6 +162,7 @@ public class ReaderActivity extends Activity {
         AlertDialog alert = builder.create();        
         alert.show();
     }
+    
     /**
      * Переход на оригинал
      */

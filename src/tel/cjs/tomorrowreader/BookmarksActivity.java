@@ -67,7 +67,7 @@ public class BookmarksActivity extends ListActivity implements Runnable{
                 Log.d(TAG, "addButton clicked");                
                 openAddWindow();                
             }
-        });        
+        });
         
         
         if (!mDbAdapter.dataExists()) {
@@ -111,7 +111,7 @@ public class BookmarksActivity extends ListActivity implements Runnable{
         mProgressDialog = ProgressDialog.show(this, "",  getString(R.string.sync_in_progress), true);
         
         Thread thread = new Thread(this);
-        thread.start();
+        thread.start();        
     }
     
     /**

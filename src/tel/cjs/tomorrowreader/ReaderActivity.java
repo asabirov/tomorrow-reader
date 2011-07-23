@@ -33,28 +33,36 @@ public class ReaderActivity extends Activity {
     
     private SharedPreferences mPrefs;
     
+    private boolean loaded = false;
+    
     @Override
     public void onCreate(Bundle bundle) {        
         Log.d(TAG, "reader layout");       
                                         
         mDbAdapter = new BookmarksDbAdapter(this);        
-		mDbAdapter.open();
+	mDbAdapter.open();
         
         super.onCreate(bundle);   
-        setContentView(R.layout.reader);
-		
-		mRowId = null;
-		Bundle extras = getIntent().getExtras();
-		mRowId = (bundle == null) ? null : (Long) bundle.getSerializable("id");
-		if (extras != null) {
-			mRowId = extras.getLong("id");
-		}
+        setContentView(R.layout.reader);		
+        
+        if (loaded) {
+            return;
+        }
+        
+        loaded = true;
+        
+	mRowId = null;
+	Bundle extras = getIntent().getExtras();
+	mRowId = (bundle == null) ? null : (Long) bundle.getSerializable("id");
+	if (extras != null) {
+            mRowId = extras.getLong("id");
+	}
         
         mBookmark = mDbAdapter.fetch(mRowId);
         
         mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         
-		populateFields();
+	populateFields();
       
         ImageButton homeButton = (ImageButton) findViewById(R.id.home_button);
         homeButton.setOnClickListener(new View.OnClickListener() {

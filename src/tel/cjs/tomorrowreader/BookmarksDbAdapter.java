@@ -198,6 +198,7 @@ public class BookmarksDbAdapter {
                                 row.getString("domain"), (row.getBoolean("content_exists") ? 1 : 0), "", row.getInt("created_at"));                        
                     }
                     dh.deleteList(exists);
+                    //deleteOld(exists);
                 } 
             }
             
@@ -205,6 +206,8 @@ public class BookmarksDbAdapter {
             e.printStackTrace();
         }                               
     }
+    
+    
     /**
      * Загрузка текстов
      * @return void
@@ -217,17 +220,10 @@ public class BookmarksDbAdapter {
     
         Cursor cursor = dh.fetchWithoutContent();
         try {
-            if (cursor != null && cursor.moveToFirst()) {
-                ArrayList<String> ids = new ArrayList<String>();
-                do {
-                    ids.add(cursor.getString(cursor.getColumnIndex("external_id")));
-                } while (cursor.moveToNext());
-                
-                if (ids.size() > 0 ) {                    
-                    //externalId = cursor.getString(cursor.getColumnIndex("external_id"));
-                    //id = cursor.getLong(cursor.getColumnIndex("_id"));
-                    /*
-
+            if (cursor != null && cursor.moveToFirst()) {                
+                do {                                  
+                    externalId = cursor.getString(cursor.getColumnIndex("external_id"));
+                    
                     String requestUrl = "http://" + ZvtraConst.DOMAIN + "/bookmarks/" + externalId;
 
                     List<NameValuePair> getParams = new ArrayList<NameValuePair>(1);
@@ -242,8 +238,9 @@ public class BookmarksDbAdapter {
                         if (data != null) {   
                             updateContent(data.getString("content"), externalId);                                
                         }
-                    }            
-                   */
+                    }  
+                } while (cursor.moveToNext());
+                   /*
                     String requestUrl = "http://" + ZvtraConst.DOMAIN + "/bookmarks/multi";
                     int n = 0;
                     int step = 6;
@@ -277,8 +274,8 @@ public class BookmarksDbAdapter {
                                 }        
                             }
                         }   
-                    }
-                }                
+                    }*/
+                              
             }
        } catch (JSONException e) {
            e.printStackTrace();

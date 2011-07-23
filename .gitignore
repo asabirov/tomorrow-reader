@@ -3,5 +3,6 @@ nbproject
 *.txt
 *.bat
 /gen/
-/nbandroid/
+nbandroid
 /bin/
+project

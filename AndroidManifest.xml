@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
      package="tel.cjs.tomorrowreader"
-     android:versionCode="4"       
-     android:versionName="1.1.2">
+     android:versionCode="5"       
+     android:versionName="1.1.3">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-sdk android:minSdkVersion="4"/>
     <supports-screens android:largeScreens="true"
@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         
-        <activity android:name="SigninActivity" android:title="" />
+        <activity android:name="SigninActivity" android:title="" android:noHistory="true" />
         <activity android:name="BookmarksActivity" android:title="" />
-        <activity android:name="ReaderActivity"  android:title="" />   
+        <activity android:name="ReaderActivity"  android:title="" android:configChanges="orientation" />   
     </application>
 </manifest>

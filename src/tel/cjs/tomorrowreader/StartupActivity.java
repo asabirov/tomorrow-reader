@@ -51,9 +51,10 @@ public class StartupActivity extends Activity {
         });
         
         if (prefs.getString("apiKey", "").length() == 0) {
-            signinAsButton.setVisibility(4);
+            signinAsButton.setVisibility(4);            
         } else {
-            signinAsButton.setText(prefs.getString("email", ""));
+            //signinAsButton.setText(prefs.getString("email", ""));
+            launchBookmarksManager();
         }
         
     }

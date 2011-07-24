@@ -281,6 +281,7 @@ public class BookmarksDbAdapter {
            e.printStackTrace();
        } 
     }
+    
     /**
      * Добавление закладки
      * @return void
